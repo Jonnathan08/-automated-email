@@ -1,0 +1,10 @@
+case 1.PNG
+mailConnection.ipynb
+validateMail.ipynb
+.ipynb_checkpoints
+ca_tracker.xlsx
+names_to_send_mail.xlsx
+users_mails.xlsx
+imagedraw.jpg
+imagedraw.png
+__pycache__
