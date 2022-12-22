@@ -6,7 +6,8 @@ import os
 MAIL_NUB = os.environ.get('MAIL_NUB')
 PASS_MAIL_NUB = os.environ.get('PASS_MAIL_NUB')
 
-s = sharepy.connect("nubsieteocho.sharepoint.com", MAIL_NUB, PASS_MAIL_NUB)
+
+s = sharepy.connect("sharepoint directory", MAIL_NUB, PASS_MAIL_NUB)
 
 # %%
 import smtplib
@@ -25,7 +26,7 @@ from email.mime.base import MIMEBase
 
 # %%
 #Importing data from CA tracker
-r = s.getfile("https://nubsieteocho.sharepoint.com/sites/ODAOPS/Shared%20Documents/General/CA%20Tracker%20-%20FY22Q1.xlsx"\
+r = s.getfile("sharepoint directory file"\
               , filename = 'ca_tracker.xlsx')
 df = pd.read_excel("ca_tracker.xlsx", usecols=['Name' , 'Start Date' , 'Finish Date', 'Out of Shift', 'Future Dates', 'Effort Calculation', 'Blank values'], sheet_name='CA Tracker')
 df.dropna(subset = ['Start Date'], inplace = True)
@@ -33,7 +34,7 @@ df.dropna(subset = ['Name'], inplace = True)
 
 # %%
 #import data with the users mails
-p = s.getfile("https://nubsieteocho.sharepoint.com/sites/ODAOPS/Shared%20Documents/General/users_mails.xlsx"\
+p = s.getfile("sharepoint directory file"\
               , filename = 'users_mails.xlsx')
 user_mails = pd.read_excel ('users_mails.xlsx')
 print('done')
@@ -41,8 +42,8 @@ print('done')
 # %%
 #SMTP Mail variables
 
-myMail = 'testNub78@outlook.com'
-password = 'EasyP4ssword78'
+myMail = 'username'
+password = 'password'
 subjectEmail = 'CA Tracker Reminder'
 
 msg1 = """<h1>Hola, %s</h1>
